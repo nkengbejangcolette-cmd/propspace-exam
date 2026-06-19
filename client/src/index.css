@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-canvas text-coal font-sans antialiased;
+  }
+  ::selection {
+    @apply bg-amber-200 text-ink-900;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-pill bg-amber-400 px-6 py-3
+           font-semibold text-ink-900 transition-all hover:bg-amber-500
+           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
+           focus-visible:outline-amber-500 disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+  .btn-dark {
+    @apply inline-flex items-center justify-center gap-2 rounded-pill bg-ink-900 px-6 py-3
+           font-semibold text-white transition-all hover:bg-ink-800;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-pill border border-line
+           bg-white px-6 py-3 font-semibold text-ink-700 transition-all
+           hover:border-ink-300 hover:bg-ink-50 focus-visible:outline focus-visible:outline-2
+           focus-visible:outline-offset-2 focus-visible:outline-ink-300;
+  }
+  .field {
+    @apply w-full rounded-xl border border-line bg-white px-4 py-3 text-coal
+           placeholder:text-coal/40 transition focus:border-amber-400
+           focus:outline-none focus:ring-2 focus:ring-amber-200;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-coal/70;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-pill bg-ink-100 px-3 py-1 text-xs
+           font-semibold text-ink-700;
+  }
+  /* Bordered icon tile, with a selected outline state like the template */
+  .tile {
+    @apply rounded-xl2 border border-line bg-white p-6 text-center transition
+           hover:border-ink-300;
+  }
+  .tile-active {
+    @apply border-2 border-ink-800 shadow-card;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
